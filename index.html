@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="md:w-4/5 mx-auto mt-4">
+      <div class="navbar bg-base-100 flex flex-col md:flex-row">
+        <div class="flex-1">
+          <a class="btn btn-ghost normal-case text-3xl">Movie App</a>
+        </div>
+        <div class="flex-none gap-2 mt-5 md:mt-0">
+          <div class="flex">
+            <input
+              id="search-field"
+              type="text"
+              placeholder="Search"
+              class="input input-bordered"
+              onfocus="this.value = '' "
+            />
+            <button id="search-button" class="btn btn-outline btn-primary ml-4">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- script -->
+    <script src="./js/api.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
