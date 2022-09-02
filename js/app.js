@@ -8,9 +8,20 @@ const loadMovies = async (movie) => {
   console.log(data.results);
 };
 
-document.getElementById("search-button").addEventListener("click", function () {
-  const searchfield = document.getElementById("search-field");
+document
+  .getElementById("search-button")
+  .addEventListener("click", function (event) {
+    const searchfield = document.getElementById("search-field");
 
-  loadMovies(searchfield.value);
-  searchfield.value = "";
-});
+    loadMovies(searchfield.value);
+    searchfield.value = "";
+  });
+
+document
+  .getElementById("search-field")
+  .addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      loadMovies(event.target.value);
+      event.target.value = "";
+    }
+  });
