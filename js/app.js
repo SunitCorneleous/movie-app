@@ -33,11 +33,10 @@ const displayAllMovies = (movies) => {
   moviesContainer.innerHTML = "";
 
   movies.forEach((movie) => {
-    console.log(movie);
     const poster = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
 
     const card = document.createElement("div");
-    card.classList.add("card", "w-72", "bg-base-100", "shadow-xl", "mx-auto");
+    card.classList.add("card", "w-72", "bg-base-300", "shadow-xl", "mx-auto");
 
     card.innerHTML = `
       <figure>
@@ -56,3 +55,14 @@ const displayAllMovies = (movies) => {
     moviesContainer.appendChild(card);
   });
 };
+
+// load popular movies
+const loadPopularMovies = async () => {
+  const res = await fetch(
+    "https://api.themoviedb.org/3/movie/popular?api_key=13ffc256818664abc193332803e39e73&language=en-US&page=1"
+  );
+  const data = await res.json();
+  displayAllMovies(data.results);
+};
+
+loadPopularMovies();
